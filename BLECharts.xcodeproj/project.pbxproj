@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96B8CC7960FE18A6E913767E /* Pods_BLECharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7359ACF9381006DE127B55 /* Pods_BLECharts.framework */; };
+		A534F397288AA11000F21183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F396288AA11000F21183 /* AppDelegate.swift */; };
+		A534F399288AA11000F21183 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F398288AA11000F21183 /* SceneDelegate.swift */; };
+		A534F39B288AA11000F21183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F39A288AA11000F21183 /* ViewController.swift */; };
+		A534F39E288AA11000F21183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A534F39C288AA11000F21183 /* Main.storyboard */; };
+		A534F3A0288AA11200F21183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A534F39F288AA11200F21183 /* Assets.xcassets */; };
+		A534F3A3288AA11200F21183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A534F3A1288AA11200F21183 /* LaunchScreen.storyboard */; };
+		A55858AE2896CECD0084C653 /* SportLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A55858AD2896CECD0084C653 /* SportLineView.m */; };
+		A55858D328AA28A80084C653 /* SportLineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55858D228AA28A80084C653 /* SportLineView.xib */; };
+		A55858D628AA32770084C653 /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55858D528AA32770084C653 /* BLEManager.swift */; };
+		A55858D928AA32A60084C653 /* BLEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55858D828AA32A60084C653 /* BLEModel.swift */; };
+		A59A513928B118FC000C0B48 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A513828B118FC000C0B48 /* ChartsViewController.swift */; };
+		A59A513B28B1195C000C0B48 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A513A28B1195C000C0B48 /* AppConstants.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6D7359ACF9381006DE127B55 /* Pods_BLECharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLECharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88D6D835E4F9461E7EFBEF22 /* Pods-BLECharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECharts.debug.xcconfig"; path = "Target Support Files/Pods-BLECharts/Pods-BLECharts.debug.xcconfig"; sourceTree = "<group>"; };
+		8D7656ADBBFFDA244C14F1A6 /* Pods-BLECharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECharts.release.xcconfig"; path = "Target Support Files/Pods-BLECharts/Pods-BLECharts.release.xcconfig"; sourceTree = "<group>"; };
+		A534F393288AA11000F21183 /* BLECharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A534F396288AA11000F21183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A534F398288AA11000F21183 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A534F39A288AA11000F21183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A534F39D288AA11000F21183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A534F39F288AA11200F21183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A534F3A2288AA11200F21183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A534F3A4288AA11200F21183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A55858AB2896CECC0084C653 /* BLECharts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BLECharts-Bridging-Header.h"; sourceTree = "<group>"; };
+		A55858AC2896CECD0084C653 /* SportLineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SportLineView.h; sourceTree = "<group>"; };
+		A55858AD2896CECD0084C653 /* SportLineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SportLineView.m; sourceTree = "<group>"; };
+		A55858D228AA28A80084C653 /* SportLineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportLineView.xib; sourceTree = "<group>"; };
+		A55858D528AA32770084C653 /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		A55858D828AA32A60084C653 /* BLEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEModel.swift; sourceTree = "<group>"; };
+		A59A513828B118FC000C0B48 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		A59A513A28B1195C000C0B48 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A534F390288AA11000F21183 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B8CC7960FE18A6E913767E /* Pods_BLECharts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63CAB7AE3C1BF0BEE7F9E8AB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88D6D835E4F9461E7EFBEF22 /* Pods-BLECharts.debug.xcconfig */,
+				8D7656ADBBFFDA244C14F1A6 /* Pods-BLECharts.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A534F38A288AA11000F21183 = {
+			isa = PBXGroup;
+			children = (
+				A534F395288AA11000F21183 /* BLECharts */,
+				A534F394288AA11000F21183 /* Products */,
+				63CAB7AE3C1BF0BEE7F9E8AB /* Pods */,
+				B614A4C67DC55DC749A08A7D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A534F394288AA11000F21183 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A534F393288AA11000F21183 /* BLECharts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A534F395288AA11000F21183 /* BLECharts */ = {
+			isa = PBXGroup;
+			children = (
+				A59A513A28B1195C000C0B48 /* AppConstants.swift */,
+				A55858D728AA32990084C653 /* Models */,
+				A55858D428AA324E0084C653 /* Manager */,
+				A55858AA2896CE6F0084C653 /* Charts */,
+				A534F396288AA11000F21183 /* AppDelegate.swift */,
+				A534F398288AA11000F21183 /* SceneDelegate.swift */,
+				A534F39A288AA11000F21183 /* ViewController.swift */,
+				A59A513828B118FC000C0B48 /* ChartsViewController.swift */,
+				A55858AB2896CECC0084C653 /* BLECharts-Bridging-Header.h */,
+				A534F39C288AA11000F21183 /* Main.storyboard */,
+				A534F39F288AA11200F21183 /* Assets.xcassets */,
+				A534F3A1288AA11200F21183 /* LaunchScreen.storyboard */,
+				A534F3A4288AA11200F21183 /* Info.plist */,
+			);
+			path = BLECharts;
+			sourceTree = "<group>";
+		};
+		A55858AA2896CE6F0084C653 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				A55858AC2896CECD0084C653 /* SportLineView.h */,
+				A55858AD2896CECD0084C653 /* SportLineView.m */,
+				A55858D228AA28A80084C653 /* SportLineView.xib */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		A55858D428AA324E0084C653 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A55858D528AA32770084C653 /* BLEManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A55858D728AA32990084C653 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A55858D828AA32A60084C653 /* BLEModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B614A4C67DC55DC749A08A7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D7359ACF9381006DE127B55 /* Pods_BLECharts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A534F392288AA11000F21183 /* BLECharts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A534F3A7288AA11200F21183 /* Build configuration list for PBXNativeTarget "BLECharts" */;
+			buildPhases = (
+				D2BC4E67E01204D446A97BF8 /* [CP] Check Pods Manifest.lock */,
+				A534F38F288AA11000F21183 /* Sources */,
+				A534F390288AA11000F21183 /* Frameworks */,
+				A534F391288AA11000F21183 /* Resources */,
+				3DE46D0E4C1E78B53C2BD5D5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLECharts;
+			productName = BLECharts;
+			productReference = A534F393288AA11000F21183 /* BLECharts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A534F38B288AA11000F21183 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					A534F392288AA11000F21183 = {
+						CreatedOnToolsVersion = 13.4;
+						LastSwiftMigration = 1340;
+					};
+				};
+			};
+			buildConfigurationList = A534F38E288AA11000F21183 /* Build configuration list for PBXProject "BLECharts" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A534F38A288AA11000F21183;
+			productRefGroup = A534F394288AA11000F21183 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A534F392288AA11000F21183 /* BLECharts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A534F391288AA11000F21183 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A534F3A3288AA11200F21183 /* LaunchScreen.storyboard in Resources */,
+				A55858D328AA28A80084C653 /* SportLineView.xib in Resources */,
+				A534F3A0288AA11200F21183 /* Assets.xcassets in Resources */,
+				A534F39E288AA11000F21183 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3DE46D0E4C1E78B53C2BD5D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLECharts/Pods-BLECharts-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLECharts/Pods-BLECharts-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLECharts/Pods-BLECharts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2BC4E67E01204D446A97BF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BLECharts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A534F38F288AA11000F21183 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A534F39B288AA11000F21183 /* ViewController.swift in Sources */,
+				A59A513928B118FC000C0B48 /* ChartsViewController.swift in Sources */,
+				A55858AE2896CECD0084C653 /* SportLineView.m in Sources */,
+				A59A513B28B1195C000C0B48 /* AppConstants.swift in Sources */,
+				A55858D628AA32770084C653 /* BLEManager.swift in Sources */,
+				A534F397288AA11000F21183 /* AppDelegate.swift in Sources */,
+				A534F399288AA11000F21183 /* SceneDelegate.swift in Sources */,
+				A55858D928AA32A60084C653 /* BLEModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A534F39C288AA11000F21183 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A534F39D288AA11000F21183 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A534F3A1288AA11200F21183 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A534F3A2288AA11200F21183 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A534F3A5288AA11200F21183 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A534F3A6288AA11200F21183 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A534F3A8288AA11200F21183 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88D6D835E4F9461E7EFBEF22 /* Pods-BLECharts.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6S84HW8MK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BLECharts/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vandevan.BLECharts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BLECharts/BLECharts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A534F3A9288AA11200F21183 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D7656ADBBFFDA244C14F1A6 /* Pods-BLECharts.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6S84HW8MK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BLECharts/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vandevan.BLECharts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "BLECharts/BLECharts-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A534F38E288AA11000F21183 /* Build configuration list for PBXProject "BLECharts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A534F3A5288AA11200F21183 /* Debug */,
+				A534F3A6288AA11200F21183 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A534F3A7288AA11200F21183 /* Build configuration list for PBXNativeTarget "BLECharts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A534F3A8288AA11200F21183 /* Debug */,
+				A534F3A9288AA11200F21183 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A534F38B288AA11000F21183 /* Project object */;
+}
