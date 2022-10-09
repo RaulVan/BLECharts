@@ -1,0 +1,4 @@
+framework module LeadECG_algorithm {
+  header "LeadECG_algorithm-Swift.h"
+  requires objc
+}
