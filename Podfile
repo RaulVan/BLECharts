@@ -10,7 +10,7 @@ project 'BLECharts.xcodeproj'
 def pods
 
     pod 'SnapKit'
-    pod 'SwifterSwift' #, :git => 'https://github.com/SwifterSwift/SwifterSwift.git'
+    pod 'SwifterSwift', '~> 5.3.0'# :git => 'https://github.com/SwifterSwift/SwifterSwift.git'
   #  pod 'MBProgressHUD'
     pod 'SVProgressHUD'
 #    pod 'CryptoSwift'

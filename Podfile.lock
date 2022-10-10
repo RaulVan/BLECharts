@@ -2,51 +2,65 @@ PODS:
   - LookinServer (1.0.6)
   - SnapKit (5.6.0)
   - SVProgressHUD (2.2.5)
-  - SwifterSwift (5.2.0):
-    - SwifterSwift/AppKit (= 5.2.0)
-    - SwifterSwift/CoreAnimation (= 5.2.0)
-    - SwifterSwift/CoreGraphics (= 5.2.0)
-    - SwifterSwift/CoreLocation (= 5.2.0)
-    - SwifterSwift/Dispatch (= 5.2.0)
-    - SwifterSwift/Foundation (= 5.2.0)
-    - SwifterSwift/MapKit (= 5.2.0)
-    - SwifterSwift/SceneKit (= 5.2.0)
-    - SwifterSwift/SpriteKit (= 5.2.0)
-    - SwifterSwift/StoreKit (= 5.2.0)
-    - SwifterSwift/SwiftStdlib (= 5.2.0)
-    - SwifterSwift/UIKit (= 5.2.0)
-  - SwifterSwift/AppKit (5.2.0)
-  - SwifterSwift/CoreAnimation (5.2.0)
-  - SwifterSwift/CoreGraphics (5.2.0)
-  - SwifterSwift/CoreLocation (5.2.0)
-  - SwifterSwift/Dispatch (5.2.0)
-  - SwifterSwift/Foundation (5.2.0)
-  - SwifterSwift/MapKit (5.2.0)
-  - SwifterSwift/SceneKit (5.2.0)
-  - SwifterSwift/SpriteKit (5.2.0)
-  - SwifterSwift/StoreKit (5.2.0)
-  - SwifterSwift/SwiftStdlib (5.2.0)
-  - SwifterSwift/UIKit (5.2.0)
+  - SwifterSwift (5.3.0):
+    - SwifterSwift/AppKit (= 5.3.0)
+    - SwifterSwift/CoreAnimation (= 5.3.0)
+    - SwifterSwift/CoreGraphics (= 5.3.0)
+    - SwifterSwift/CoreLocation (= 5.3.0)
+    - SwifterSwift/CryptoKit (= 5.3.0)
+    - SwifterSwift/Dispatch (= 5.3.0)
+    - SwifterSwift/Foundation (= 5.3.0)
+    - SwifterSwift/HealthKit (= 5.3.0)
+    - SwifterSwift/MapKit (= 5.3.0)
+    - SwifterSwift/SceneKit (= 5.3.0)
+    - SwifterSwift/SpriteKit (= 5.3.0)
+    - SwifterSwift/StoreKit (= 5.3.0)
+    - SwifterSwift/SwiftStdlib (= 5.3.0)
+    - SwifterSwift/UIKit (= 5.3.0)
+    - SwifterSwift/WebKit (= 5.3.0)
+  - SwifterSwift/AppKit (5.3.0)
+  - SwifterSwift/CoreAnimation (5.3.0)
+  - SwifterSwift/CoreGraphics (5.3.0)
+  - SwifterSwift/CoreLocation (5.3.0)
+  - SwifterSwift/CryptoKit (5.3.0)
+  - SwifterSwift/Dispatch (5.3.0)
+  - SwifterSwift/Foundation (5.3.0)
+  - SwifterSwift/HealthKit (5.3.0)
+  - SwifterSwift/MapKit (5.3.0)
+  - SwifterSwift/SceneKit (5.3.0)
+  - SwifterSwift/SpriteKit (5.3.0)
+  - SwifterSwift/StoreKit (5.3.0)
+  - SwifterSwift/SwiftStdlib (5.3.0)
+  - SwifterSwift/UIKit (5.3.0)
+  - SwifterSwift/WebKit (5.3.0)
 
 DEPENDENCIES:
   - LookinServer
   - SnapKit
   - SVProgressHUD
-  - SwifterSwift
+  - SwifterSwift (from `https://github.com/SwifterSwift/SwifterSwift.git`)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - LookinServer
     - SnapKit
     - SVProgressHUD
-    - SwifterSwift
+
+EXTERNAL SOURCES:
+  SwifterSwift:
+    :git: https://github.com/SwifterSwift/SwifterSwift.git
+
+CHECKOUT OPTIONS:
+  SwifterSwift:
+    :commit: 04d474ade1aa7d8e6bde9a65d5f8d1a3595dc3a0
+    :git: https://github.com/SwifterSwift/SwifterSwift.git
 
 SPEC CHECKSUMS:
   LookinServer: 18155b1e4a08213c236a1dd6b7ca52328a70a1e3
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
+  SwifterSwift: d6321c8c64588311be85652759d452d2855dc8b7
 
-PODFILE CHECKSUM: 7735dad8608c62c70484e2f1ab720b7db5549be1
+PODFILE CHECKSUM: b4378891697a93c02c42c4b1650dc37f8ac6f8d7
 
 COCOAPODS: 1.11.3
