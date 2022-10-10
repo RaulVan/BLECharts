@@ -21,7 +21,8 @@ class BleManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
     var connectedPeripheral : CBPeripheral!
     var writeCharacteristic : CBCharacteristic!
 
-    var connBleName: String = "ECG"
+    var connBleName: String = "Westlake University"
+    
     var serviceText: String = "FFF0"
     var notifyText: String = "FFF4"
     var writeText: String = "FFF1"
@@ -130,6 +131,7 @@ class BleManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate {
             if service.uuid.uuidString == serviceText {
                 peripheral.discoverCharacteristics(nil, for: service)
             }
+            
         }
     }
     //4、Indicate characteristics UUID

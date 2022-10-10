@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87D3936B28F427E1007D77C4 /* HexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3936A28F427E1007D77C4 /* HexUtils.swift */; };
 		96B8CC7960FE18A6E913767E /* Pods_BLECharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7359ACF9381006DE127B55 /* Pods_BLECharts.framework */; };
 		A534F397288AA11000F21183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F396288AA11000F21183 /* AppDelegate.swift */; };
 		A534F399288AA11000F21183 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F398288AA11000F21183 /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		6D7359ACF9381006DE127B55 /* Pods_BLECharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BLECharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87D3936A28F427E1007D77C4 /* HexUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexUtils.swift; sourceTree = "<group>"; };
 		88D6D835E4F9461E7EFBEF22 /* Pods-BLECharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECharts.debug.xcconfig"; path = "Target Support Files/Pods-BLECharts/Pods-BLECharts.debug.xcconfig"; sourceTree = "<group>"; };
 		8D7656ADBBFFDA244C14F1A6 /* Pods-BLECharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECharts.release.xcconfig"; path = "Target Support Files/Pods-BLECharts/Pods-BLECharts.release.xcconfig"; sourceTree = "<group>"; };
 		A534F393288AA11000F21183 /* BLECharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 				A534F396288AA11000F21183 /* AppDelegate.swift */,
 				A534F398288AA11000F21183 /* SceneDelegate.swift */,
 				A534F39A288AA11000F21183 /* ViewController.swift */,
+				87D3936A28F427E1007D77C4 /* HexUtils.swift */,
 				A59A513828B118FC000C0B48 /* ChartsViewController.swift */,
 				A55858AB2896CECC0084C653 /* BLECharts-Bridging-Header.h */,
 				A534F39C288AA11000F21183 /* Main.storyboard */,
@@ -262,6 +265,7 @@
 				A534F397288AA11000F21183 /* AppDelegate.swift in Sources */,
 				A534F399288AA11000F21183 /* SceneDelegate.swift in Sources */,
 				A55858D928AA32A60084C653 /* BLEModel.swift in Sources */,
+				87D3936B28F427E1007D77C4 /* HexUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,9 +412,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V6S84HW8MK;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V6S84HW8MK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLECharts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -426,6 +432,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vandevan.BLECharts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.vandevan.BLECharts Development LZAF";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BLECharts/BLECharts-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -441,9 +449,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V6S84HW8MK;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V6S84HW8MK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLECharts/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -459,6 +469,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vandevan.BLECharts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.vandevan.BLECharts Development LZAF";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BLECharts/BLECharts-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

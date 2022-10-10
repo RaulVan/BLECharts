@@ -8,7 +8,7 @@
 import UIKit
 import CoreBluetooth
 
-fileprivate let localNamePrefix: String = "FTR-BLE"
+fileprivate let localNamePrefix: String = "Westlake University"
 
 /// 自定义的Ble state管理枚举，涵盖了蓝牙启动、扫描、连接及数据更新过程中的错误状态
 public enum RYBleState: Error, CustomStringConvertible{
@@ -124,7 +124,7 @@ public class BLEManager: NSObject{
             self.scanError?(self.checkBleStatus())
             return
         }
-        timerForStop(sec: timeSec)
+//        timerForStop(sec: timeSec)
         self.cbManager.scanForPeripherals(withServices: services, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
         
     }
@@ -196,7 +196,8 @@ extension BLEManager: CBCentralManagerDelegate{
     
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber){
         // localName.hasPrefix(localNamePrefix)
-        if let localName = advertisementData["kCBAdvDataLocalName"] as? String, localName.count > 0, localName.hasPrefix(localNamePrefix) {
+        // MARK: 只搜索一台设备 localNamePrefix
+        if let localName = advertisementData["kCBAdvDataLocalName"] as? String, localName.count > 0, localName == localNamePrefix {
             print(localName)
             let bleModel = BLEModel(peripheral: peripheral, advertisementData: advertisementData, rssi: RSSI)
             print(bleModel)
@@ -257,30 +258,38 @@ extension BLEManager: CBPeripheralDelegate{
         
         if let characters = service.characteristics{
             for character in characters{
-                let property = character.properties
-                if property == .broadcast{
-                    //如果是广播特性
-                }
-                if property == .read{
-                    //如果具备读特性，可以读取特性的value
-                    peripheral.readValue(for: character)
-                }
-                if property == .writeWithoutResponse{
-                    //如果具备写入值不需要想要的特性
-                    //这里保存这个可以写的特性，便于后面往这个特性中写数据
-                    self.writeCharacteristic = character
-                }
-                if property == .write{
-                    //如果具备写入值的特性，这个应该会有一些响应
-                    self.writeCharacteristic = character
-                }
-                if property == [.writeWithoutResponse, .write] {
-                    self.writeCharacteristic = character
-                }
-                if property == .notify{
-                    //如果具备通知的特性，无响应
+                
+                switch character.uuid.uuidString {
+                case "FFF4":
                     peripheral.setNotifyValue(true, for: character)
+                default:
+                    self.writeCharacteristic = character
                 }
+                
+//                let property = character.properties
+//                if property == .broadcast{
+//                    //如果是广播特性
+//                }
+//                if property == .read{
+//                    //如果具备读特性，可以读取特性的value
+//                    peripheral.readValue(for: character)
+//                }
+//                if property == .writeWithoutResponse{
+//                    //如果具备写入值不需要想要的特性
+//                    //这里保存这个可以写的特性，便于后面往这个特性中写数据
+//                    self.writeCharacteristic = character
+//                }
+//                if property == .write{
+//                    //如果具备写入值的特性，这个应该会有一些响应
+//                    self.writeCharacteristic = character
+//                }
+//                if property == [.writeWithoutResponse, .write] {
+//                    self.writeCharacteristic = character
+//                }
+//                if property == .notify{
+//                    //如果具备通知的特性，无响应
+//                    peripheral.setNotifyValue(true, for: character)
+//                }
                 
             }
         }
@@ -310,6 +319,8 @@ extension BLEManager: CBPeripheralDelegate{
         
         if let _ = characteristic.value {
             self.connectdUpdateBlock?(characteristic)
+        } else {
+            print("=============")
         }
     }
 }
