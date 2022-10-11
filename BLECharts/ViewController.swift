@@ -43,18 +43,15 @@ class ViewController: UIViewController {
         BLEManager.sharedManager.connect(peripheral: peripheral) { connectedPeriheral in
             print("已连接")
         } updateValue: { characteristic in
-            print("接收数据")
-            
             guard let data:Data = characteristic.value else {
                 return
             }
-            
-//            let b =  data.bytes
-            
-            var bytes  = Array(UnsafeBufferPointer(start: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count), count: data.count))
-//            bytes = CFSwapInt16BigToHost(Int(bytes))
+            //            var bytes  = Array(UnsafeBufferPointer(start: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count), count: data.count))
+            //            bytes = CFSwapInt16BigToHost(Int(bytes))
+            let u16 = data.bytes.withUnsafeBytes { $0.load(as: UInt16.self) }
+            let hostU16 = CFSwapInt16BigToHost(u16)
+            let bytes = hostU16.bytes
             let hexString = HexUtils.encode(bytes)
-            
             print(hexString)
             
         } errorBlock: { state in
