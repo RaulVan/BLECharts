@@ -49,7 +49,10 @@ class ViewController: UIViewController {
                 return
             }
             
-            let bytes  = Array(UnsafeBufferPointer(start: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count), count: data.count))
+//            let b =  data.bytes
+            
+            var bytes  = Array(UnsafeBufferPointer(start: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count), count: data.count))
+//            bytes = CFSwapInt16BigToHost(Int(bytes))
             let hexString = HexUtils.encode(bytes)
             
             print(hexString)

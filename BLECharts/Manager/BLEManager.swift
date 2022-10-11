@@ -195,6 +195,7 @@ extension BLEManager: CBCentralManagerDelegate{
     }
     
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber){
+        print(peripheral.name ?? "")
         // localName.hasPrefix(localNamePrefix)
         // MARK: 只搜索一台设备 localNamePrefix
         if let localName = advertisementData["kCBAdvDataLocalName"] as? String, localName.count > 0, localName == localNamePrefix {
