@@ -46,14 +46,7 @@ class ViewController: UIViewController {
             guard let data:Data = characteristic.value else {
                 return
             }
-            //            var bytes  = Array(UnsafeBufferPointer(start: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count), count: data.count))
-            //            bytes = CFSwapInt16BigToHost(Int(bytes))
-            let u16 = data.bytes.withUnsafeBytes { $0.load(as: UInt16.self) }
-            let hostU16 = CFSwapInt16BigToHost(u16)
-            let bytes = hostU16.bytes
-            let hexString = HexUtils.encode(bytes)
-            print(hexString)
-            
+            self.convertUInt(data)
         } errorBlock: { state in
             print(state)
         }
@@ -61,6 +54,19 @@ class ViewController: UIViewController {
         
     }
     
+    @discardableResult
+    func convertUInt(_ data: Data) -> [UInt8] {
+        
+        let bytes  = Array(UnsafeBufferPointer(start: (data as NSData).bytes.bindMemory(to: UInt8.self, capacity: data.count), count: data.count))
+        let u16 = bytes.withUnsafeBytes { $0.load(as: UInt16.self) }
+        // 大小端转换
+        let hostU16 = CFSwapInt16BigToHost(u16)
+        
+        let hexString1 = HexUtils.encode(bytes)
+        let hexString2 = HexUtils.encode(hostU16.toBytes)
+        print("\(hexString1) == \(hexString2)")
+        return hostU16.toBytes
+    }
 }
 
 

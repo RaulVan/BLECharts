@@ -26,9 +26,26 @@ class HexUtils  {
     }
     
     
-   
+    
 }
 
+extension String {
+    /// 十六进制字符串转换成 Data
+    var hexadecimal: Data? {
+        var data = Data(capacity: count / 2)
+        
+        let regex = try! NSRegularExpression(pattern: "[0-9a-f]{1,2}", options: .caseInsensitive)
+        regex.enumerateMatches(in: self, range: NSRange(startIndex..., in: self)) { match, _, _ in
+            let byteString = (self as NSString).substring(with: match!.range)
+            let num = UInt8(byteString, radix: 16)!
+            data.append(num)
+        }
+        
+        guard data.count > 0 else { return nil }
+        
+        return data
+    }
+}
 
 
 protocol UIntToBytesConvertable {
@@ -51,7 +68,7 @@ extension UInt16: UIntToBytesConvertable {
     var toBytes: [UInt8] {
         if CFByteOrderGetCurrent() == Int(CFByteOrderLittleEndian.rawValue) {
             return toByteArr(endian: self.littleEndian,
-                         count: MemoryLayout<UInt16>.size)
+                             count: MemoryLayout<UInt16>.size)
         } else {
             return toByteArr(endian: self.bigEndian,
                              count: MemoryLayout<UInt16>.size)
@@ -62,8 +79,8 @@ extension UInt16: UIntToBytesConvertable {
 extension UInt32: UIntToBytesConvertable {
     var toBytes: [UInt8] {
         if CFByteOrderGetCurrent() == Int(CFByteOrderLittleEndian.rawValue) {
-        return toByteArr(endian: self.littleEndian,
-                         count: MemoryLayout<UInt32>.size)
+            return toByteArr(endian: self.littleEndian,
+                             count: MemoryLayout<UInt32>.size)
         } else {
             return toByteArr(endian: self.bigEndian,
                              count: MemoryLayout<UInt32>.size)
@@ -74,8 +91,8 @@ extension UInt32: UIntToBytesConvertable {
 extension UInt64: UIntToBytesConvertable {
     var toBytes: [UInt8] {
         if CFByteOrderGetCurrent() == Int(CFByteOrderLittleEndian.rawValue) {
-        return toByteArr(endian: self.littleEndian,
-                         count: MemoryLayout<UInt64>.size)
+            return toByteArr(endian: self.littleEndian,
+                             count: MemoryLayout<UInt64>.size)
         } else {
             return toByteArr(endian: self.bigEndian,
                              count: MemoryLayout<UInt64>.size)
