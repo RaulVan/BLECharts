@@ -115,7 +115,7 @@ static CGFloat allW;    // 整个图表宽度
         lbl.font = [UIFont systemFontOfSize:10];
         lbl.textAlignment = NSTextAlignmentRight;
         
-        lbl.text = [NSString stringWithFormat:@"%d%%", (int)(maxY / yCount * (yCount - i)) ];
+        lbl.text = [NSString stringWithFormat:@"%d", (int)(maxY / yCount * (yCount - i)) ];
         
         [self addSubview:lbl];
     }

@@ -6,29 +6,40 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        SVProgressHUD.setDefaultMaskType(.black)
+        SVProgressHUD.setDefaultAnimationType(.flat)
+        SVProgressHUD.setDefaultStyle(.light)
+        SVProgressHUD.setMaximumDismissTimeInterval(2)
+        SVProgressHUD.setMinimumDismissTimeInterval(1)
+        SVProgressHUD.setImageViewSize(CGSize(width: 28, height: 28))
+        
+        BLEManager.sharedManager.bleInit { state in
+            
+        } error: { state in
+            switch state {
+                case .unauthorized:
+                    let alertVC = UIAlertController(title: "", message: "Open Bluetooth" , preferredStyle: .alert)
+                    
+                    alertVC.addAction(title: "Settings", style: .cancel, isEnabled: true) { _action in
+                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                    }
+                    alertVC.show()
+                default:
+                    break
+            }
+        }
+        
+        
         return true
-    }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
 

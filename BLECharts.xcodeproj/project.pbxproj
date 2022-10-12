@@ -10,7 +10,6 @@
 		87D3936B28F427E1007D77C4 /* HexUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3936A28F427E1007D77C4 /* HexUtils.swift */; };
 		96B8CC7960FE18A6E913767E /* Pods_BLECharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D7359ACF9381006DE127B55 /* Pods_BLECharts.framework */; };
 		A534F397288AA11000F21183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F396288AA11000F21183 /* AppDelegate.swift */; };
-		A534F399288AA11000F21183 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F398288AA11000F21183 /* SceneDelegate.swift */; };
 		A534F39B288AA11000F21183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A534F39A288AA11000F21183 /* ViewController.swift */; };
 		A534F39E288AA11000F21183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A534F39C288AA11000F21183 /* Main.storyboard */; };
 		A534F3A0288AA11200F21183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A534F39F288AA11200F21183 /* Assets.xcassets */; };
@@ -21,6 +20,8 @@
 		A55858D928AA32A60084C653 /* BLEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55858D828AA32A60084C653 /* BLEModel.swift */; };
 		A59A513928B118FC000C0B48 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A513828B118FC000C0B48 /* ChartsViewController.swift */; };
 		A59A513B28B1195C000C0B48 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A513A28B1195C000C0B48 /* AppConstants.swift */; };
+		A5E7313E28F5D8900018F6E2 /* ble.txt in Resources */ = {isa = PBXBuildFile; fileRef = A5E7313D28F5D8900018F6E2 /* ble.txt */; };
+		A5E7315428F656040018F6E2 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E7315328F656040018F6E2 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,6 @@
 		8D7656ADBBFFDA244C14F1A6 /* Pods-BLECharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLECharts.release.xcconfig"; path = "Target Support Files/Pods-BLECharts/Pods-BLECharts.release.xcconfig"; sourceTree = "<group>"; };
 		A534F393288AA11000F21183 /* BLECharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLECharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A534F396288AA11000F21183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A534F398288AA11000F21183 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A534F39A288AA11000F21183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A534F39D288AA11000F21183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A534F39F288AA11200F21183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +44,8 @@
 		A55858D828AA32A60084C653 /* BLEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEModel.swift; sourceTree = "<group>"; };
 		A59A513828B118FC000C0B48 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		A59A513A28B1195C000C0B48 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		A5E7313D28F5D8900018F6E2 /* ble.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ble.txt; sourceTree = "<group>"; };
+		A5E7315328F656040018F6E2 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,12 +90,13 @@
 		A534F395288AA11000F21183 /* BLECharts */ = {
 			isa = PBXGroup;
 			children = (
+				A5E7315228F655E50018F6E2 /* Extensions */,
+				A5E7313D28F5D8900018F6E2 /* ble.txt */,
 				A59A513A28B1195C000C0B48 /* AppConstants.swift */,
 				A55858D728AA32990084C653 /* Models */,
 				A55858D428AA324E0084C653 /* Manager */,
 				A55858AA2896CE6F0084C653 /* Charts */,
 				A534F396288AA11000F21183 /* AppDelegate.swift */,
-				A534F398288AA11000F21183 /* SceneDelegate.swift */,
 				A534F39A288AA11000F21183 /* ViewController.swift */,
 				87D3936A28F427E1007D77C4 /* HexUtils.swift */,
 				A59A513828B118FC000C0B48 /* ChartsViewController.swift */,
@@ -130,6 +133,14 @@
 				A55858D828AA32A60084C653 /* BLEModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A5E7315228F655E50018F6E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A5E7315328F656040018F6E2 /* Notification.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B614A4C67DC55DC749A08A7D /* Frameworks */ = {
@@ -204,6 +215,7 @@
 				A534F3A3288AA11200F21183 /* LaunchScreen.storyboard in Resources */,
 				A55858D328AA28A80084C653 /* SportLineView.xib in Resources */,
 				A534F3A0288AA11200F21183 /* Assets.xcassets in Resources */,
+				A5E7313E28F5D8900018F6E2 /* ble.txt in Resources */,
 				A534F39E288AA11000F21183 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,13 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E7315428F656040018F6E2 /* Notification.swift in Sources */,
 				A534F39B288AA11000F21183 /* ViewController.swift in Sources */,
 				A59A513928B118FC000C0B48 /* ChartsViewController.swift in Sources */,
 				A55858AE2896CECD0084C653 /* SportLineView.m in Sources */,
 				A59A513B28B1195C000C0B48 /* AppConstants.swift in Sources */,
 				A55858D628AA32770084C653 /* BLEManager.swift in Sources */,
 				A534F397288AA11000F21183 /* AppDelegate.swift in Sources */,
-				A534F399288AA11000F21183 /* SceneDelegate.swift in Sources */,
 				A55858D928AA32A60084C653 /* BLEModel.swift in Sources */,
 				87D3936B28F427E1007D77C4 /* HexUtils.swift in Sources */,
 			);
@@ -412,13 +424,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V6S84HW8MK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLECharts/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "连接蓝牙设备";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -433,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vandevan.BLECharts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.vandevan.BLECharts Development LZAF";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BLECharts/BLECharts-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -449,13 +463,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V6S84HW8MK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLECharts/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "连接蓝牙设备";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -470,7 +486,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vandevan.BLECharts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.vandevan.BLECharts Development LZAF";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BLECharts/BLECharts-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

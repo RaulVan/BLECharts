@@ -7,6 +7,7 @@
 
 import UIKit
 import SwifterSwift
+import SVProgressHUD
 
 
 class ViewController: UIViewController {
@@ -15,22 +16,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    func sacnBLE() {
         DispatchQueue.main.asyncAfter(delay: 5) {
+            SVProgressHUD.show(withStatus: "搜索..")
             BLEManager.sharedManager.scan(services: nil) { discoverys in
                 print(discoverys)
-                //            self.tableView.reloadDataAsync()
+                
                 print("")
                 BLEManager.sharedManager.stopScan()
             } completionBlock: {
                 print("")
-                //            SVProgressHUD.dismiss()
-                //            self.tableView.reloadDataAsync()
-                
+                SVProgressHUD.dismiss()
                 self.connectBLE()
                 
             } errorBlock: { state in
-                //            SVProgressHUD.showError(withStatus: state.description)
-                //            self.tableView.reloadDataAsync()
+                SVProgressHUD.showError(withStatus: state.description)
                 print("")
             }
         }
@@ -41,17 +43,18 @@ class ViewController: UIViewController {
         let peripheral = discovery.peripheral
         
         BLEManager.sharedManager.connect(peripheral: peripheral) { connectedPeriheral in
-            print("已连接")
+            SVProgressHUD.showSuccess(withStatus: "已连接")
         } updateValue: { characteristic in
             guard let data:Data = characteristic.value else {
                 return
             }
-            self.convertUInt(data)
+            let value = self.convertUInt(data)
+            let hexStr = HexUtils.encode(value)
+            NotificationCenter.default.post(name: .kNotificationUpdateValue, object: hexStr.hexToDecimal)
         } errorBlock: { state in
             print(state)
+            SVProgressHUD.show(withStatus: state.localizedDescription)
         }
-        
-        
     }
     
     @discardableResult
@@ -61,10 +64,8 @@ class ViewController: UIViewController {
         let u16 = bytes.withUnsafeBytes { $0.load(as: UInt16.self) }
         // 大小端转换
         let hostU16 = CFSwapInt16BigToHost(u16)
-        
-        let hexString1 = HexUtils.encode(bytes)
-        let hexString2 = HexUtils.encode(hostU16.toBytes)
-        print("\(hexString1) == \(hexString2)")
+//        let hexString2 = HexUtils.encode(hostU16.toBytes)
+//        print("\(hexString1) == \(hexString2)")
         return hostU16.toBytes
     }
 }

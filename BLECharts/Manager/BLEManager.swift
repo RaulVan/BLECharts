@@ -70,7 +70,7 @@ public class BLEManager: NSObject{
     
     fileprivate var timerStop: Timer?
     
-    fileprivate let timeSec: TimeInterval = 10
+    fileprivate let timeSec: TimeInterval = 5
     
     private override init(){
         super.init()
@@ -124,7 +124,7 @@ public class BLEManager: NSObject{
             self.scanError?(self.checkBleStatus())
             return
         }
-//        timerForStop(sec: timeSec)
+        timerForStop(sec: timeSec)
         self.cbManager.scanForPeripherals(withServices: services, options: [CBCentralManagerScanOptionAllowDuplicatesKey: false])
         
     }
@@ -206,6 +206,10 @@ extension BLEManager: CBCentralManagerDelegate{
                 self.discoverys.append(bleModel)
             }
             self.scanCallback?(self.discoverys)
+            
+            self.timerStop?.invalidate()
+            self.timerStop = nil
+            self.stopScan()
         }
     }
     
