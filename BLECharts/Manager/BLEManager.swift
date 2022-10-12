@@ -8,6 +8,7 @@
 import UIKit
 import CoreBluetooth
 
+/// 蓝牙设备名称
 fileprivate let localNamePrefix: String = "Westlake University"
 
 /// 自定义的Ble state管理枚举，涵盖了蓝牙启动、扫描、连接及数据更新过程中的错误状态

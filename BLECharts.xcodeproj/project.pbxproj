@@ -426,12 +426,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V6S84HW8MK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLECharts/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Westlake BLE";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "连接蓝牙设备";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -447,7 +448,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vandevan.BLECharts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.vandevan.BLECharts Development LZAF";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BLECharts/BLECharts-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -465,12 +466,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = V6S84HW8MK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BLECharts/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Westlake BLE";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "连接蓝牙设备";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -486,7 +488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vandevan.BLECharts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "com.vandevan.BLECharts Development LZAF";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "BLECharts/BLECharts-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
