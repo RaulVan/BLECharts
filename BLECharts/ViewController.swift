@@ -13,9 +13,80 @@ import SVProgressHUD
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var btnDevice: UIButton!
+    
+    @IBOutlet weak var dashView1: DashboardView!
+    
+    @IBOutlet weak var dashView2: DashboardView!
+    
+    @IBOutlet weak var dashView3: DashboardView!
+    
+    @IBOutlet weak var dashView4: DashboardView!
+    
+    
+    var currentDevice: String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dashView1.title = "心率"
+        dashView1.value = "80"
+        dashView1.untis = "次/分"
+        dashView2.title = "血压"
+        dashView2.value = "90/140"
+        dashView2.untis = "mmHg"
+        dashView3.title = "PH"
+        dashView3.value = "7.35"
+        dashView3.untis = ""
+        dashView4.title = "UA"
+        dashView4.value = "126"
+        dashView4.untis = "umol/L"
+        
+        Tap.on(view: dashView1) {
+            let vc = ChartsViewController()
+            vc.title = "心率"
+            self.navigationController?.pushViewController(vc)
+        }
+        
+        Tap.on(view: dashView2) {
+            let vc = ChartsViewController()
+            vc.title = "血压"
+            self.navigationController?.pushViewController(vc)
+        }
+        
+        Tap.on(view: dashView3) {
+            let vc = ChartsViewController()
+            vc.title = "PH"
+            self.navigationController?.pushViewController(vc)
+        }
+        
+        Tap.on(view: dashView4) {
+            let vc = ChartsViewController()
+            vc.title = "UA"
+            self.navigationController?.pushViewController(vc)
+        }
+    }
+    @IBAction func btnDeviceAction(_ sender: UIButton) {
+        let list = ["M1", "M2"]
+        let popoverVC = PopoverViewController()
+        popoverVC.dataSource = list
+        popoverVC.defaultValue = currentDevice ?? "" // sender.currentTitle ?? "M1"
+        popoverVC.preferredContentSize = CGSize(width: 120, height: 130)
+        popoverVC.cellSelectionHandler = { value, index in
+//            let type = self.reportTypeList[index]
+//            self.selectedData1 = [type]
+//            sender.setTitle(value, for: .normal)
+//            self.refreshView()
+            self.currentDevice = value
+        }
+        popoverVC.modalPresentationStyle = .popover
+        let popPresentationController = popoverVC.popoverPresentationController
+        popPresentationController?.sourceView = sender
+        popPresentationController?.sourceRect = sender.bounds
+        popPresentationController?.permittedArrowDirections = .up
+        popPresentationController?.delegate = self
+        self.present(popoverVC, animated: true)
     }
     
     func sacnBLE() {
@@ -71,3 +142,18 @@ class ViewController: UIViewController {
 }
 
 
+extension ViewController: UIPopoverPresentationControllerDelegate {
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
+extension UIViewController {
+    
+    static func loadFromNib() -> Self {
+        func instantiateFromNib<T: UIViewController>() -> T {
+            return T.init(nibName: String(describing: T.self), bundle: nil)
+        }
+        return instantiateFromNib()
+    }
+}

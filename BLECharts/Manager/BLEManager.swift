@@ -272,7 +272,7 @@ extension BLEManager: CBPeripheralDelegate{
                     self.writeCharacteristic = character
                 }
                 
-//                let property = character.properties
+                let property = character.properties
 //                if property == .broadcast{
 //                    //如果是广播特性
 //                }

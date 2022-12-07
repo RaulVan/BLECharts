@@ -30,19 +30,19 @@ class ChartsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         setLineView()
         // 蓝牙
-        sacnBLE()
+//        sacnBLE()
 //
 //          //模拟
-//       mockBLE()
+       mockBLE()
         
     }
     
     func mockBLE() {
         Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { _timer in
-            let y = Double.random(in: 0..<5000)
+            let y = Double.random(in: 60..<160)
             NotificationCenter.default.post(name: .kNotificationUpdateValue, object: y)
 
         }
@@ -111,7 +111,7 @@ class ChartsViewController: UIViewController {
         let sprotLineView = SportLineView.lineChartView(withFrame: CGRect(x: 10, y: 120, width: kScreenWidth - 20, height: 250))
         //        sprotLineView.type = .TriangleType
         sprotLineView.xValues = [1,2,3,4,5,6,7,8,9,10] // X 坐标值
-        sprotLineView.yValues = [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000] // Y 坐标值
+        sprotLineView.yValues = [50, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 190, 200] // Y 坐标值
         sprotLineView.isShowLine = true
         sprotLineView.drawChartWithLineChart()
         self.sprotLineView = sprotLineView
