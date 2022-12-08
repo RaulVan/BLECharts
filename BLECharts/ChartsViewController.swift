@@ -73,26 +73,45 @@ class ChartsViewController: UIViewController {
     }
     
     /// 连接蓝牙
-    func connectBLE() {
-        let discovery = BLEManager.sharedManager.discoverys[0]
-        let peripheral = discovery.peripheral
-        
-        BLEManager.sharedManager.connect(peripheral: peripheral) { connectedPeriheral in
-            SVProgressHUD.showSuccess(withStatus: "已连接")
-            self.title = connectedPeriheral.name
-        } updateValue: { characteristic in
-            guard let data:Data = characteristic.value else {
-                return
-            }
-            let value = self.convertUInt(data)
-            let hexStr = HexUtils.encode(value)
-            // 通知，绘制折线图
-            NotificationCenter.default.post(name: .kNotificationUpdateValue, object: hexStr.hexToDecimal)
-        } errorBlock: { state in
-            print(state)
-            SVProgressHUD.show(withStatus: state.localizedDescription)
-        }
-    }
+       func connectBLE() {
+           let discovery = BLEManager.sharedManager.discoverys[0]
+           let peripheral = discovery.peripheral
+           
+           BLEManager.sharedManager.connect(peripheral: peripheral) { connectedPeriheral in
+               SVProgressHUD.showSuccess(withStatus: "已连接")
+               self.title = connectedPeriheral.name
+           } updateValue: { characteristic in
+               guard let data:Data = characteristic.value else {
+                   return
+               }
+               print(data)
+               if data.bytes.count == 8 {
+                   let data1 = data.subdata(in: 0..<2)
+                   let value1 = self.convertData(data: data1)
+                   let data2 = data.subdata(in: 2..<4)
+                   let value2 = self.convertData(data: data2)
+                   let data3 = data.subdata(in: 4..<6)
+                   let value3 = self.convertData(data: data3)
+                   let data4 = data.subdata(in: 6..<8)
+                   let value4 = self.convertData(data: data4)
+                   
+                   // 通知，绘制折线图
+                   NotificationCenter.default.post(name: .kNotificationUpdateValue, object: value1)
+               } else {
+                   
+               }
+           } errorBlock: { state in
+               print(state)
+               SVProgressHUD.show(withStatus: state.localizedDescription)
+           }
+       }
+       
+       func convertData(data: Data) -> Int {
+           let value = self.convertUInt(data)
+           let hexStr = HexUtils.encode(value)
+           print("hexStr: \(hexStr) === \(hexStr.hexToDecimal)")
+           return hexStr.hexToDecimal
+       }
     
     @discardableResult
     /// 数据转换
