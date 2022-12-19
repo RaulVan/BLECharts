@@ -199,18 +199,21 @@ extension BLEManager: CBCentralManagerDelegate{
         print(peripheral.name ?? "")
         // localName.hasPrefix(localNamePrefix)
         // MARK: 只搜索一台设备 localNamePrefix
-        if let localName = advertisementData["kCBAdvDataLocalName"] as? String, localName.count > 0, localName == localNamePrefix {
+        //localName == localNamePrefix
+        
+//        if let localName = advertisementData["kCBAdvDataLocalName"] as? String, localName.count > 0, localName == localNamePrefix {
+        if let localName = peripheral.name, localName.count > 0 {
             print(localName)
-            let bleModel = BLEModel(peripheral: peripheral, advertisementData: advertisementData, rssi: RSSI)
+            let bleModel = BLEModel(name: localName, peripheral: peripheral, advertisementData: advertisementData, rssi: RSSI)
             print(bleModel)
             if !self.discoverys.contains(bleModel) {
                 self.discoverys.append(bleModel)
             }
             self.scanCallback?(self.discoverys)
             
-            self.timerStop?.invalidate()
-            self.timerStop = nil
-            self.stopScan()
+//            self.timerStop?.invalidate()
+//            self.timerStop = nil
+//            self.stopScan()
         }
     }
     
@@ -224,6 +227,7 @@ extension BLEManager: CBCentralManagerDelegate{
     
     public func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?){
         print("ble: did fail to connect peripheral - \(String(describing: error))")
+        self.discoverys.removeAll()
         self.connectedPeriheral = nil
         self.connectdErrorBlock?(.connectFailed)
     }

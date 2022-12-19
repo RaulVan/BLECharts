@@ -27,12 +27,14 @@ class DashboardView: UIView {
         }
     }
     
+    
     var untis: String? {
         didSet {
             labelUnits.text = untis
         }
     }
     
+    var type: DashBoardType = .none
     
 
     override init(frame: CGRect) {

@@ -18,6 +18,8 @@ class ChartsViewController: UIViewController {
     var xValue: Double = 0 // 横轴
     let timeInterval = 0.5 // 描点频率
     
+    var type: DashBoardType = .none
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(notificationUpdataValue(_:)), name: .kNotificationUpdateValue, object: nil)
@@ -32,86 +34,8 @@ class ChartsViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setLineView()
-        // 蓝牙
-//        sacnBLE()
-//
-//          //模拟
-       mockBLE()
-        
     }
     
-    func mockBLE() {
-        Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { _timer in
-            let y = Double.random(in: 60..<160)
-            NotificationCenter.default.post(name: .kNotificationUpdateValue, object: y)
-
-        }
-    }
-    
-    func sacnBLE() {
-        SVProgressHUD.show(withStatus: "搜索...")
-        
-        DispatchQueue.main.asyncAfter(delay: 3) {
-            
-            BLEManager.sharedManager.scan(services: nil) { discoverys in
-                print(discoverys)
-                
-                print("")
-                BLEManager.sharedManager.stopScan()
-                self.connectBLE()
-            } completionBlock: {
-                print("")
-                SVProgressHUD.dismiss()
-                if BLEManager.sharedManager.discoverys.count <= 0 {
-                    SVProgressHUD.showInfo(withStatus: "未找到")
-                }
-            } errorBlock: { state in
-                SVProgressHUD.showError(withStatus: state.description)
-                print("")
-            }
-        }
-    }
-    
-    /// 连接蓝牙
-       func connectBLE() {
-           let discovery = BLEManager.sharedManager.discoverys[0]
-           let peripheral = discovery.peripheral
-           
-           BLEManager.sharedManager.connect(peripheral: peripheral) { connectedPeriheral in
-               SVProgressHUD.showSuccess(withStatus: "已连接")
-               self.title = connectedPeriheral.name
-           } updateValue: { characteristic in
-               guard let data:Data = characteristic.value else {
-                   return
-               }
-               print(data)
-               if data.bytes.count == 8 {
-                   let data1 = data.subdata(in: 0..<2)
-                   let value1 = self.convertData(data: data1)
-                   let data2 = data.subdata(in: 2..<4)
-                   let value2 = self.convertData(data: data2)
-                   let data3 = data.subdata(in: 4..<6)
-                   let value3 = self.convertData(data: data3)
-                   let data4 = data.subdata(in: 6..<8)
-                   let value4 = self.convertData(data: data4)
-                   
-                   // 通知，绘制折线图
-                   NotificationCenter.default.post(name: .kNotificationUpdateValue, object: value1)
-               } else {
-                   
-               }
-           } errorBlock: { state in
-               print(state)
-               SVProgressHUD.show(withStatus: state.localizedDescription)
-           }
-       }
-       
-       func convertData(data: Data) -> Int {
-           let value = self.convertUInt(data)
-           let hexStr = HexUtils.encode(value)
-           print("hexStr: \(hexStr) === \(hexStr.hexToDecimal)")
-           return hexStr.hexToDecimal
-       }
     
     @discardableResult
     /// 数据转换
@@ -167,11 +91,24 @@ extension ChartsViewController {
     
     @objc func notificationUpdataValue(_ notify: Notification) {
         
-        guard let value = notify.object as? Double else {
+        guard let data = notify.object as? DashBoardData else {
             return
         }
+        var value: Int = 0
+        switch self.type {
+        case .hr:
+            value = data.valueHR
+        case .ph:
+            value = data.valuePH
+        case .bp:
+            value = data.valueBP
+        case .ua:
+            value = data.valueUA
+        default:
+            break
+        }
         
-        self.setPoint(x: xValue, y: value)
+        self.setPoint(x: xValue, y: Double(value))
         xValue += timeInterval
         
     }
