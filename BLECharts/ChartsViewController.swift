@@ -7,16 +7,21 @@
 
 import UIKit
 import SVProgressHUD
+import Charts
 
 
 /// 折线图
 class ChartsViewController: UIViewController {
     
     
-    var sprotLineView: SportLineView?
     
     var xValue: Double = 0 // 横轴
     let timeInterval = 0.5 // 描点频率
+    
+    
+    var chartView: LineChartView = LineChartView()
+    
+    var lineChartData: LineChartData?
     
     var type: DashBoardType = .none
     
@@ -33,8 +38,65 @@ class ChartsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setLineView()
+//        setLineView()
+        
+        chartView.frame = CGRect(x: 10, y: 120, width: kScreenWidth - 20, height: 250)
+        view.addSubview(chartView)
+        chartView.backgroundColor = .white
+        chartView.noDataText = "暂无数据"
+        
+        chartView.chartDescription.enabled = false
+        chartView.pinchZoomEnabled = true
+        chartView.dragEnabled = true
+        chartView.legend.form = .circle
+        
+//        let leftAxis = chartView.leftAxis
+//        leftAxis.drawLimitLinesBehindDataEnabled = true
+//        leftAxis.removeAllLimitLines()
+//        leftAxis.axisMinimum = 0
+////        leftAxis.axisMaximum = 3500
+//
+////        chartView.xAxis.axisMinimum = 1
+////        chartView.xAxis.axisMaximum = 100
+//        chartView.xAxis.spaceMin = 0.5
+//        chartView.xAxis.drawGridLinesEnabled = true
+//        chartView.xAxis.granularityEnabled = true
+//        chartView.xAxis.labelPosition = .bottom
+//        chartView.xAxis.labelRotationAngle = 30
+//        chartView.rightAxis.enabled = false
+        
+        chartView.xAxis.labelPosition = .bottom
+        chartView.rightAxis.enabled = false
+        
+        let chartDataSet1 = LineChartDataSet(entries: [ChartDataEntry(x: 0, y: 0)], label: self.title ?? "")
+        chartDataSet1.drawCirclesEnabled = false
+        chartDataSet1.setColor(UIColor(hex: 0xEA5C55)!) //UIColor(red:0.92, green:0.36, blue:0.33, alpha:1.00)#
+        chartDataSet1.lineWidth = 1.0
+        chartDataSet1.mode = .horizontalBezier
+        chartDataSet1.drawValuesEnabled = false
+        chartDataSet1.drawFilledEnabled = true
+        chartDataSet1.fillColor = UIColor(hex: 0xEA5C55)!
+        chartDataSet1.fillAlpha = 0.3
+        
+        //生成20条随机数据
+//        var dataEntries = [ChartDataEntry]()
+//        for i in 0..<20 {
+//            let y = arc4random()%100
+//            let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
+//            dataEntries.append(entry)
+//        }
+//
+        //这50条数据作为1根折线里的所有数据
+        
+        
+        //目前折线图只包括1根折线
+        lineChartData = LineChartData(dataSets: [chartDataSet1])
+        //设置折现图数据
+        chartView.data = lineChartData
+        
     }
+    
+    
     
     
     @discardableResult
@@ -50,46 +112,14 @@ class ChartsViewController: UIViewController {
         return hostU16.toBytes
     }
     
-    func setLineView() {
-        let sprotLineView = SportLineView.lineChartView(withFrame: CGRect(x: 10, y: 120, width: kScreenWidth - 20, height: 250))
-        //        sprotLineView.type = .TriangleType
-        sprotLineView.xValues = [1,2,3,4,5,6,7,8,9,10] // X 坐标值
-        sprotLineView.yValues = [50, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 190, 200] // Y 坐标值
-        sprotLineView.isShowLine = true
-        sprotLineView.drawChartWithLineChart()
-        self.sprotLineView = sprotLineView
-        view.addSubview(sprotLineView)
-    }
-    
-    /// 设置描点
-    /// - Parameters:
-    ///   - x: x description
-    ///   - y: y description
-    func setPoint(x: Double, y: Double) {
-        
-        let newPoint = CGPoint(x: x, y: y)
-        let newPointObj = NSValue(cgPoint: newPoint)
-        self.sprotLineView?.pointArray.add(newPointObj)
-        
-        guard let pointArray = self.sprotLineView?.pointArray, let xValues = self.sprotLineView?.xValues else {
-            return
-        }
-        //移除多余的点，修改 X 坐标，往后移动
-        for (index, point) in pointArray.enumerated() {
-            let pointRestored = (point as! NSValue).cgPointValue
-            if x > Double(xValues.count) {
-                if pointRestored.x < Double(x - Double(xValues.count)) {
-                    self.sprotLineView?.pointArray.remove(point)
-                }
-            }
-        }
-        self.sprotLineView?.exchangeLineAnyTime()
-    }
+   
 }
 
 extension ChartsViewController {
     
     @objc func notificationUpdataValue(_ notify: Notification) {
+        
+        
         
         guard let data = notify.object as? DashBoardData else {
             return
@@ -108,8 +138,14 @@ extension ChartsViewController {
             break
         }
         
-        self.setPoint(x: xValue, y: Double(value))
+//        self.setPoint(x: xValue, y: Double(value))
+        let dataEntry = ChartDataEntry(x: xValue, y: Double(value))
+//        entries.append(dataEntry)
         xValue += timeInterval
+        lineChartData?.appendEntry(dataEntry, toDataSet: 0)
+        lineChartData?.notifyDataChanged()
+        chartView.notifyDataSetChanged()
+        
         
     }
 }

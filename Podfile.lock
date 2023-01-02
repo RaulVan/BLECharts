@@ -1,7 +1,24 @@
 PODS:
+  - BRPickerView (2.8.0):
+    - BRPickerView/AddressPickerView (= 2.8.0)
+    - BRPickerView/Base (= 2.8.0)
+    - BRPickerView/DatePickerView (= 2.8.0)
+    - BRPickerView/StringPickerView (= 2.8.0)
+  - BRPickerView/AddressPickerView (2.8.0):
+    - BRPickerView/Base
+  - BRPickerView/Base (2.8.0)
+  - BRPickerView/DatePickerView (2.8.0):
+    - BRPickerView/Base
+  - BRPickerView/StringPickerView (2.8.0):
+    - BRPickerView/Base
+  - Charts (4.1.0):
+    - Charts/Core (= 4.1.0)
+  - Charts/Core (4.1.0):
+    - SwiftAlgorithms (~> 1.0)
   - LookinServer (1.0.6)
   - SnapKit (5.6.0)
   - SVProgressHUD (2.2.5)
+  - SwiftAlgorithms (1.0.0)
   - SwifterSwift (5.3.0):
     - SwifterSwift/AppKit (= 5.3.0)
     - SwifterSwift/CoreAnimation (= 5.3.0)
@@ -35,6 +52,8 @@ PODS:
   - SwifterSwift/WebKit (5.3.0)
 
 DEPENDENCIES:
+  - BRPickerView
+  - Charts
   - LookinServer
   - SnapKit
   - SVProgressHUD
@@ -42,9 +61,12 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - BRPickerView
+    - Charts
     - LookinServer
     - SnapKit
     - SVProgressHUD
+    - SwiftAlgorithms
 
 EXTERNAL SOURCES:
   SwifterSwift:
@@ -56,11 +78,14 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwifterSwift/SwifterSwift.git
 
 SPEC CHECKSUMS:
+  BRPickerView: a0ff460bf092bc069db5a54153395b1f7e8f5300
+  Charts: 354f86803d11d9c35de280587fef50d1af063978
   LookinServer: 18155b1e4a08213c236a1dd6b7ca52328a70a1e3
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   SwifterSwift: d6321c8c64588311be85652759d452d2855dc8b7
 
-PODFILE CHECKSUM: b4378891697a93c02c42c4b1650dc37f8ac6f8d7
+PODFILE CHECKSUM: f998c2f43aad60d4da71e2c17440410e95eb7c44
 
 COCOAPODS: 1.11.3

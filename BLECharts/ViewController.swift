@@ -9,6 +9,7 @@ import UIKit
 import SwifterSwift
 import SVProgressHUD
 import CoreBluetooth
+import BRPickerView
 
 
 class ViewController: UIViewController {
@@ -102,13 +103,13 @@ class ViewController: UIViewController {
     func mockBLE() {
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _timer in
             
-            let y1 = Int.random(in: 60..<160)
+            let y1 = Int.random(in: 60..<3560)
             
-            let y2 = Int.random(in: 60..<140)
+            let y2 = Int.random(in: 2500..<3800)
             
-            let y3 = Int.random(in: 60..<160)
+            let y3 = Int.random(in: 60..<400)
             
-            let y4 = Int.random(in: 60..<160)
+            let y4 = Int.random(in: 60..<2000)
             
             let data = DashBoardData(valueHR: y1, valueBP: y2, valuePH: y3, valueUA: y4)
             
@@ -229,8 +230,14 @@ class ViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.dashView1.value = "\(data.valueHR)"
-            self.dashView2.value = "\(data.valueBP)"
             //MARK: - 血压超标要警告 // 血压：高压、低压两部分
+            
+            self.dashView2.value = "\(data.valueBP)"
+            if data.valueBP >= 2800 {
+                self.dashView2.backgroundColor = UIColor(red:0.92, green:0.36, blue:0.33, alpha:1.00)
+            } else {
+                self.dashView2.backgroundColor = .white
+            }
             self.dashView3.value = "\(data.valuePH)"
             self.dashView4.value = "\(data.valueUA)"
         }
@@ -238,6 +245,20 @@ class ViewController: UIViewController {
 //        self.setPoint(x: xValue, y: value)
 //        xValue += timeInterval
         
+    }
+    
+    
+    @IBAction func btnHistoryHandler(_ sender: Any) {
+        showDatePicker()
+    }
+    
+    
+    func showDatePicker() {
+        let picker = BRDatePickerView(pickerMode: .date)
+        picker.title = "选择时间"
+        picker.selectDate = Date()
+        picker.isAutoSelect = true
+        picker.show()
     }
 }
 

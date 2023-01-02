@@ -8,18 +8,19 @@ workspace 'BLECharts.xcworkspace'
 project 'BLECharts.xcodeproj'
 
 def pods
-
-    pod 'SnapKit'
-    pod 'SwifterSwift', :git => 'https://github.com/SwifterSwift/SwifterSwift.git'
-  #  pod 'MBProgressHUD'
-    pod 'SVProgressHUD'
-#    pod 'CryptoSwift'
-
-    pod 'LookinServer', :configurations => ["Debug"] ## 配合Lookin查看UI图层，https://lookin.work/
-
+  
+  pod 'SnapKit'
+  pod 'SwifterSwift', :git => 'https://github.com/SwifterSwift/SwifterSwift.git'
+  
+  pod 'SVProgressHUD'
+  
+  pod 'BRPickerView'
+  pod 'Charts'
+  pod 'LookinServer', :configurations => ["Debug"] ## 配合Lookin查看UI图层，https://lookin.work/
+  
 end
 
 
 target "BLECharts" do
-    pods
+  pods
 end
