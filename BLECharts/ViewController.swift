@@ -91,25 +91,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnDeviceAction(_ sender: UIButton) {
-        if BLEManager.sharedManager.discoverys.count > 0 {
-            showDeviceList()
-        } else {
-            scanBLE()
-        }
+//        if BLEManager.sharedManager.discoverys.count > 0 {
+//            showDeviceList()
+//        } else {
+//            scanBLE()
+//        }
         
-//        mockBLE()
+        mockBLE()
     }
     
     func mockBLE() {
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _timer in
             
-            let y1 = Int.random(in: 60..<3560)
+            let y1 = Int.random(in: 0..<900)
             
-            let y2 = Int.random(in: 2500..<3800)
+            let y2 = Int.random(in: 0..<900)
             
-            let y3 = Int.random(in: 60..<400)
+            let y3 = Int.random(in: 0..<900)
             
-            let y4 = Int.random(in: 60..<2000)
+            let y4 = Int.random(in: 0..<900)
             
             let data = DashBoardData(valueHR: y1, valueBP: y2, valuePH: y3, valueUA: y4)
             
@@ -159,7 +159,7 @@ class ViewController: UIViewController {
             print(data)
             if data.bytes.count == 8 {
                 let data1 = data.subdata(in: 0..<2)
-                let value1 = self.convertData(data: data1)
+                var value1 = self.convertData(data: data1)
                 let data2 = data.subdata(in: 2..<4)
                 let value2 = self.convertData(data: data2)
                 let data3 = data.subdata(in: 4..<6)
@@ -167,8 +167,10 @@ class ViewController: UIViewController {
                 let data4 = data.subdata(in: 6..<8)
                 let value4 = self.convertData(data: data4)
                 
+                value1 = value1 * 1/2
+                
                 // 通知，绘制折线图等
-                let data = DashBoardData(valueHR: value1, valueBP: value2, valuePH: value3, valueUA: value4)
+                let data = DashBoardData(valueHR: value1 , valueBP: value2, valuePH: value3, valueUA: value4)
                 
                 NotificationCenter.default.post(name: .kNotificationUpdateValue, object: data)
             } else {
